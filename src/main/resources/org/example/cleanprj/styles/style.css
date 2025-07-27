@@ -1,0 +1,109 @@
+.root-gradient {
+    -fx-background-color: linear-gradient(from 0% 30% to 60% 100%, #5ec576, #4bbb7d, #39b385);
+}
+
+/* General Styles */
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #ffffff;
+}
+
+.active-tab {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent transparent #000000 transparent;
+    -fx-border-width: 0 0 2px 0;
+}
+
+.inactive-tab {
+    -fx-background-color: #ededed;
+    -fx-text-fill: #868686;
+}
+
+/* Text Styles */
+.welcome-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+.section-header {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.main-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.sub-title {
+    -fx-font-size: 14px;
+}
+
+/* Navigation Links */
+.nav-link {
+    -fx-text-fill: #2a5885;
+    -fx-border-color: transparent;
+    -fx-padding: 5px 0;
+}
+
+.nav-link:hover {
+    -fx-text-fill: #4a76a8;
+    -fx-underline: true;
+}
+
+/* Search Field */
+.search-field {
+    -fx-padding: 5 10 5 10;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #ddd;
+    -fx-pref-width: 300px;
+}
+
+/* Attraction Cards */
+.attraction-card {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+}
+
+.attraction-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.attraction-description {
+    -fx-wrap-text: true;
+}
+
+.difficulty-easy {
+    -fx-font-weight: bold;
+    -fx-text-fill: green;
+}
+
+/* Price and Book Button */
+.price-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.book-button {
+    -fx-background-color: #4caf50;
+    -fx-text-fill: white;
+    -fx-padding: 5 15 5 15;
+    -fx-background-radius: 5;
+}
+
+.title-label {
+    -fx-text-fill: #2c3e50;
+}
+
+.subtitle-label {
+    -fx-text-fill: #7f8c8d;
+}

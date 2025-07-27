@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cleanprj.controllers.AdminController">
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #2c3e50; -fx-padding: 15;">
+                <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Admin Dashboard" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="logoutButton" onAction="#handleLogout" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;" text="Logout" />
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Analytics">
+                <ScrollPane fitToWidth="true">
+                    <VBox spacing="20.0" style="-fx-padding: 20;">
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                            <Button fx:id="refreshAnalyticsButton" onAction="#refreshAnalytics" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" text="🔄 Refresh Analytics" />
+                            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="System Overview" />
+                        </HBox>
+
+                        <GridPane hgap="20.0" vgap="20.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+
+                            <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #3498db; -fx-background-radius: 10; -fx-padding: 20;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <Label fx:id="totalTouristsLabel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                                <Label style="-fx-text-fill: white; -fx-font-size: 14px;" text="Total Tourists" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #2ecc71; -fx-background-radius: 10; -fx-padding: 20;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <Label fx:id="totalGuidesLabel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                                <Label style="-fx-text-fill: white; -fx-font-size: 14px;" text="Total Guides" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 10; -fx-padding: 20;" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                <Label fx:id="totalAttractionsLabel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                                <Label style="-fx-text-fill: white; -fx-font-size: 14px;" text="Total Attractions" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #f39c12; -fx-background-radius: 10; -fx-padding: 20;" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                                <Label fx:id="totalBookingsLabel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                                <Label style="-fx-text-fill: white; -fx-font-size: 14px;" text="Total Bookings" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #9b59b6; -fx-background-radius: 10; -fx-padding: 20;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label fx:id="pendingBookingsLabel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                                <Label style="-fx-text-fill: white; -fx-font-size: 14px;" text="Pending Bookings" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #1abc9c; -fx-background-radius: 10; -fx-padding: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label fx:id="confirmedBookingsLabel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                                <Label style="-fx-text-fill: white; -fx-font-size: 14px;" text="Confirmed Bookings" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #34495e; -fx-background-radius: 10; -fx-padding: 20;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                <Label fx:id="totalRevenueLabel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="$0" />
+                                <Label style="-fx-text-fill: white; -fx-font-size: 14px;" text="Total Revenue" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #e67e22; -fx-background-radius: 10; -fx-padding: 20;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                <Label fx:id="emergencyContactsLabel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                                <Label style="-fx-text-fill: white; -fx-font-size: 14px;" text="Emergency Contacts" />
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <Tab text="Tourists">
+                <VBox spacing="15.0" style="-fx-padding: 20;">
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Tourist Management" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="exportTouristsButton" onAction="#exportTourists" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="📊 Export CSV" />
+                    </HBox>
+                    <TableView fx:id="touristsTable" prefHeight="400.0">
+                        <columns>
+                            <TableColumn fx:id="touristNameColumn" prefWidth="150.0" text="Name" />
+                            <TableColumn fx:id="touristEmailColumn" prefWidth="200.0" text="Email" />
+                            <TableColumn fx:id="touristPhoneColumn" prefWidth="120.0" text="Phone" />
+                            <TableColumn fx:id="touristCountryColumn" prefWidth="100.0" text="Country" />
+                            <TableColumn fx:id="touristStatusColumn" prefWidth="80.0" text="Status" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab text="Guides">
+                <VBox spacing="15.0" style="-fx-padding: 20;">
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Guide Management" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addGuideButton" onAction="#showAddGuideDialog" style="-fx-background-color: #3498db; -fx-text-fill: white;" text="➕ Add Guide" />
+                        <Button fx:id="exportGuidesButton" onAction="#exportGuides" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="📊 Export CSV" />
+                    </HBox>
+                    <TableView fx:id="guidesTable" prefHeight="400.0">
+                        <columns>
+                            <TableColumn fx:id="guideNameColumn" prefWidth="120.0" text="Name" />
+                            <TableColumn fx:id="guideLanguagesColumn" prefWidth="120.0" text="Languages" />
+                            <TableColumn fx:id="guideSpecializationColumn" prefWidth="120.0" text="Specialization" />
+                            <TableColumn fx:id="guideExperienceColumn" prefWidth="80.0" text="Experience" />
+                            <TableColumn fx:id="guideRatingColumn" prefWidth="60.0" text="Rating" />
+                            <TableColumn fx:id="guideContactColumn" prefWidth="120.0" text="Contact" />
+                            <TableColumn fx:id="guideStatusColumn" prefWidth="80.0" text="Status" />
+                            <TableColumn fx:id="guideActionsColumn" prefWidth="150.0" text="Actions" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab text="Attractions">
+                <VBox spacing="15.0" style="-fx-padding: 20;">
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Attraction Management" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="attractionSearchField" promptText="🔍 Search attractions..." style="-fx-pref-width: 200;" />
+                        <ComboBox fx:id="attractionStatusFilter" promptText="Filter by Status" style="-fx-pref-width: 150;" />
+                        <Button fx:id="filterAttractionsButton" onAction="#filterAttractions" style="-fx-background-color: #8e44ad; -fx-text-fill: white;" text="🔍 Filter" />
+                        <Button fx:id="addAttractionButton" onAction="#showAddAttractionDialog" style="-fx-background-color: #3498db; -fx-text-fill: white;" text="➕ Add Attraction" />
+                        <Button fx:id="exportAttractionsButton" onAction="#exportAttractions" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="📊 Export CSV" />
+                    </HBox>
+                    <TableView fx:id="attractionsTable" prefHeight="400.0">
+                        <columns>
+                            <TableColumn fx:id="attractionNameColumn" prefWidth="150.0" text="Name" />
+                            <TableColumn fx:id="attractionTypeColumn" prefWidth="100.0" text="Type" />
+                            <TableColumn fx:id="attractionLocationColumn" prefWidth="100.0" text="Location" />
+                            <TableColumn fx:id="attractionDifficultyColumn" prefWidth="80.0" text="Difficulty" />
+                            <TableColumn fx:id="attractionPriceColumn" prefWidth="80.0" text="Price (USD)" />
+                            <TableColumn fx:id="attractionStatusColumn" prefWidth="80.0" text="Status" />
+                            <TableColumn fx:id="attractionActionsColumn" prefWidth="150.0" text="Actions" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab text="Bookings">
+                <VBox spacing="15.0" style="-fx-padding: 20;">
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Booking Management" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="bookingSearchField" promptText="🔍 Search bookings..." style="-fx-pref-width: 200;" />
+                        <ComboBox fx:id="bookingStatusFilter" promptText="Filter by Status" style="-fx-pref-width: 150;" />
+                        <Button fx:id="filterBookingsButton" onAction="#filterBookings" style="-fx-background-color: #8e44ad; -fx-text-fill: white;" text="🔍 Filter" />
+                        <Button fx:id="refreshBookingsButton" onAction="#refreshBookings" style="-fx-background-color: #3498db; -fx-text-fill: white;" text="🔄 Refresh" />
+                        <Button fx:id="exportBookingsButton" onAction="#exportBookings" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="📊 Export CSV" />
+                    </HBox>
+                    <TableView fx:id="bookingsTable" prefHeight="400.0">
+                        <columns>
+                            <TableColumn fx:id="bookingTouristColumn" prefWidth="120.0" text="Tourist Name" />
+                            <TableColumn fx:id="bookingAttractionColumn" prefWidth="150.0" text="Attraction Name" />
+                            <TableColumn fx:id="bookingDatesColumn" prefWidth="120.0" text="Travel Dates" />
+                            <TableColumn fx:id="bookingCostColumn" prefWidth="80.0" text="Cost (USD)" />
+                            <TableColumn fx:id="bookingStatusColumn" prefWidth="80.0" text="Status" />
+                            <TableColumn fx:id="bookingGuideColumn" prefWidth="120.0" text="Assigned Guide" />
+                            <TableColumn fx:id="bookingAssignColumn" prefWidth="120.0" text="Assign Guide" />
+                            <TableColumn fx:id="bookingDetailsColumn" prefWidth="80.0" text="Details" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab text="Emergency Contacts">
+                <VBox spacing="15.0" style="-fx-padding: 20;">
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Emergency Contact Management" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addEmergencyContactButton" onAction="#showAddEmergencyContactDialog" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="🚨 Add Emergency Contact" />
+                        <Button fx:id="exportEmergencyContactsButton" onAction="#exportEmergencyContacts" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="📊 Export CSV" />
+                    </HBox>
+                    <TableView fx:id="emergencyContactsTable" prefHeight="400.0">
+                        <columns>
+                            <TableColumn fx:id="emergencyServiceColumn" prefWidth="150.0" text="Service" />
+                            <TableColumn fx:id="emergencyContactColumn" prefWidth="120.0" text="Contact" />
+                            <TableColumn fx:id="emergencyLocationColumn" prefWidth="150.0" text="Location" />
+                            <TableColumn fx:id="emergencyAvailabilityColumn" prefWidth="120.0" text="Availability" />
+                            <TableColumn fx:id="emergencyDescriptionColumn" prefWidth="200.0" text="Description" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

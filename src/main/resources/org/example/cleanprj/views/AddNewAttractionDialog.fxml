@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.cleanprj.controllers.AddNewAttractionController">
+    <children>
+        <!-- Header Section -->
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <children>
+                <Label text="Add New Attraction">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose"
+                        style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-size: 18px;"
+                        text="✕" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </HBox>
+
+        <!-- Subtitle -->
+        <Label text="Fill in the attraction information below." textFill="#666666">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <VBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
+            </VBox.margin>
+        </Label>
+
+        <!-- Form Fields -->
+        <VBox spacing="20.0">
+            <children>
+                <!-- Two Column Layout for Name/Type, Location/Difficulty, Altitude/Duration -->
+                <GridPane hgap="20.0" vgap="20.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <children>
+                        <!-- Name Field -->
+                        <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <children>
+                                <Label text="Name">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="nameField"
+                                           style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px;" />
+                            </children>
+                        </VBox>
+
+                        <!-- Type Field -->
+                        <VBox spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <children>
+                                <Label text="Type">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="typeComboBox" maxWidth="1.7976931348623157E308"
+                                          promptText="Select type"
+                                          style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px;" />
+                            </children>
+                        </VBox>
+
+                        <!-- Location Field -->
+                        <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <children>
+                                <Label text="Location">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="locationField"
+                                           style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px;" />
+                            </children>
+                        </VBox>
+
+                        <!-- Difficulty Field -->
+                        <VBox spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <children>
+                                <Label text="Difficulty">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="difficultyComboBox" maxWidth="1.7976931348623157E308"
+                                          promptText="Select difficulty"
+                                          style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px;" />
+                            </children>
+                        </VBox>
+
+                        <!-- Altitude Field -->
+                        <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <children>
+                                <Label text="Altitude (meters)">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="altitudeField"
+                                           style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px;" />
+                            </children>
+                        </VBox>
+
+                        <!-- Duration Field -->
+                        <VBox spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <children>
+                                <Label text="Duration">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="durationField" promptText="e.g., 14-16 days"
+                                           style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px;" />
+                            </children>
+                        </VBox>
+                    </children>
+                </GridPane>
+
+                <!-- Best Season Field (Full Width) -->
+                <VBox spacing="8.0">
+                    <children>
+                        <Label text="Best Season">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="bestSeasonField" promptText="e.g., March-May, September-November"
+                                   style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px;" />
+                    </children>
+                </VBox>
+
+                <!-- Description Field (Full Width) -->
+                <VBox spacing="8.0">
+                    <children>
+                        <Label text="Description">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextArea fx:id="descriptionArea" prefRowCount="5" promptText="Describe the attraction..."
+                                  style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px;"
+                                  wrapText="true" />
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </VBox>
+
+        <!-- Button Section -->
+        <HBox alignment="CENTER_RIGHT" spacing="15.0">
+            <children>
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel"
+                        prefHeight="40.0" prefWidth="100.0" text="Cancel"
+                        style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-font-size: 14px;" />
+                <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave"
+                        prefHeight="40.0" prefWidth="100.0" text="Save" textFill="WHITE"
+                        style="-fx-background-color: #333333; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-font-size: 14px;" />
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+            </padding>
+        </HBox>
+    </children>
+    <style>-fx-background-color: #f8f8f8; -fx-background-radius: 12px;</style>
+</VBox>

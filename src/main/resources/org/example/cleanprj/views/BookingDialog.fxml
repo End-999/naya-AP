@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cleanprj.controllers.BookingsDialogController">
+    <children>
+        <!-- Header Section -->
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <children>
+                <Label text="Create New Booking">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #D3D3D3; -fx-border-color: transparent; -fx-font-size: 18px; -fx-background-radius: 8px;" text="✕" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </HBox>
+
+        <!-- Subtitle -->
+        <Label text="Fill in your booking details below" textFill="#666666">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <VBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
+            </VBox.margin>
+        </Label>
+
+        <!-- Festival Discount Information -->
+        <Label fx:id="festivalDiscountInfo" text="🎉 Festival Season Discount: 20% OFF from Sep 20 to Oct 5"
+               style="-fx-text-fill: #2e7d32; -fx-font-weight: bold; -fx-background-color: #e8f5e8; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;">
+            <VBox.margin>
+                <Insets bottom="15.0" left="20.0" right="20.0" />
+            </VBox.margin>
+        </Label>
+
+        <!-- Form Fields -->
+        <VBox prefWidth="500.0" spacing="20.0">
+            <children>
+                <GridPane hgap="20.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <children>
+                        <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <children>
+                                <Label text="Tourist Name">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="touristName" prefHeight="43.0" prefWidth="220.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-padding: 10; -fx-background-color: #f9f9f9;" text="Loading..." />
+                                <Label text="Contact Number">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="touristContactField" prefHeight="43.0" prefWidth="172.0" style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px;" promptText="Enter contact number" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <children>
+                                <Label text="Email">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="touristEmail" prefHeight="43.0" prefWidth="220.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-padding: 10; -fx-background-color: #f9f9f9;" text="Loading..." />
+                                <Label text="Destination">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="touristDestination" prefHeight="43.0" prefWidth="220.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-padding: 10; -fx-background-color: #f9f9f9;" text="Loading..." />
+                            </children>
+                        </VBox>
+                    </children>
+                    <rowConstraints>
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+
+                <Label text="Select Your Travel Dates" textFill="#666666">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+
+                <GridPane hgap="20.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <children>
+                        <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <children>
+                                <Label text="Start Date">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <DatePicker fx:id="startDatePicker" maxWidth="1.7976931348623157E308" promptText="Select start date"
+                                            style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px;" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <children>
+                                <Label text="End Date">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <DatePicker fx:id="endDatePicker" maxWidth="1.7976931348623157E308" promptText="Select end date"
+                                            style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px;" />
+                            </children>
+                        </VBox>
+                    </children>
+                    <rowConstraints>
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label text="Additional Notes (Optional)">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextArea fx:id="notesArea" prefRowCount="3" promptText="Any special requirements or notes..."
+                                  style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 12px;"
+                                  wrapText="true" />
+                    </children>
+                </VBox>
+
+                <!-- Price Section with Discount Display -->
+                <VBox spacing="8.0" style="-fx-background-color: #f0f8ff; -fx-padding: 15; -fx-border-radius: 10; -fx-background-radius: 10;">
+                    <children>
+                        <!-- Original Price (shown when discount applies) -->
+                        <Label fx:id="originalPriceLabel" text="Original: $0.00" visible="false"
+                               style="-fx-text-decoration: line-through; -fx-text-fill: #999; -fx-font-size: 14px;" />
+
+                        <!-- Discount Label (shown when discount applies) -->
+                        <Label fx:id="discountLabel" text="🎉 Festival Discount (20%): -$0.00" visible="false"
+                               style="-fx-text-fill: #2e7d32; -fx-font-weight: bold; -fx-background-color: #e8f5e8; -fx-padding: 5; -fx-border-radius: 3; -fx-background-radius: 3;" />
+
+                        <Label text="Total Price">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="totalPriceLabel" text="'$0.00'" textFill="#2e7d32">
+                            <font>
+                                <Font name="System Bold" size="28.0" />
+                            </font>
+                        </Label>
+                        <Label text="* Price calculated per day" textFill="#666666">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </VBox>
+
+        <!-- Button Section -->
+        <HBox alignment="CENTER_RIGHT" spacing="15.0">
+            <children>
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="100.0"
+                        style="-fx-background-color: white; -fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-font-size: 14px;"
+                        text="Cancel" />
+                <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave" prefHeight="40.0" prefWidth="120.0"
+                        style="-fx-background-color: #333333; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-font-size: 14px;"
+                        text="Confirm Booking" textFill="WHITE" />
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+            </padding>
+        </HBox>
+    </children>
+    <style>-fx-background-color: #f8f8f8; -fx-background-radius: 8px;</style>
+</VBox>
